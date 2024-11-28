@@ -4,11 +4,7 @@ import path from "path";
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-app.use(
-  express.static(
-    path.join(process.cwd(), "../frontend/.next/server/app/page.js")
-  )
-);
+app.use(express.static(path.join(process.cwd(), "../frontend/.next")));
 
 app.get("/api", (req: Request, res: Response) => {
   res.json({message: "Hello from the Backend!"});
@@ -17,9 +13,7 @@ app.get("/api", (req: Request, res: Response) => {
 //This should be after all api routes
 //This will solve manual refresh issue
 app.get("*", (req: Request, res: Response) => {
-  res.sendFile(
-    path.join(__dirname, "../../frontend", ".next/server/app/page.js")
-  );
+  res.sendFile(path.join(__dirname, "../../frontend", ".next"));
 });
 
 app.listen(PORT, () => {
