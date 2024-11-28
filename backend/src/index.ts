@@ -4,7 +4,11 @@ import path from "path";
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-app.use(express.static(path.join(process.cwd(), "../frontend/.next")));
+app.use(
+  express.static(
+    path.join(process.cwd(), "../frontend/.next/server/app/page.js")
+  )
+);
 
 app.get("/api", (req: Request, res: Response) => {
   res.json({message: "Hello from the Backend!"});
