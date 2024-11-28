@@ -4,6 +4,7 @@
 node_modules
 dist/
 .next/
+out/
 /.pnp
 .pnp.*
 .yarn/*
