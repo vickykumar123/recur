@@ -12,9 +12,9 @@ app.get("/api", (req: Request, res: Response) => {
 
 //This should be after all api routes
 //This will solve manual refresh issue
-app.get("*", (req: Request, res: Response) => {
-  res.sendFile(path.join(__dirname, "../../frontend/out", "index.html"));
-});
+// app.get("*", (req: Request, res: Response) => {
+//   res.sendFile(path.join(__dirname, "../../frontend/out"));
+// });
 
 app.listen(PORT, () => {
   console.log(`Backend is running on http://localhost:${PORT}`);
