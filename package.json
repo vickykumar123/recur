@@ -1,0 +1,23 @@
+{
+  "name": "recuritment",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm install && npm run build:frontend && npm run build:backend",
+    "build:frontend": "npm install --prefix ./frontend && npm run build --prefix ./frontend",
+    "build:backend": "npm install --prefix ./backend && npx tsc --project ./backend/tsconfig.json",
+    "start": "concurrently \"npm run start --prefix backend\" \"npm run dev --prefix frontend\"",
+    "start:frontend": "npm run start --prefix ./frontend",
+    "start:backend": "node ./backend/dist/index.js",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:frontend": "npm --prefix ./frontend run dev",
+    "dev:backend": "npm --prefix ./backend run dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^9.1.0"
+  }
+}
